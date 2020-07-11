@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DataCamp Project Visualizing COVID 19 | Sueg Zone</title><meta name="description" content="1. From epidemic to pandemicIn December 2019, COVID-19 coronavirus was first identified in the Wuhan region of China. By March 11, 2020, the World Health Organization (WHO) categorized the COVID-19 ou"><meta name="keywords" content="Data_Visualization"><meta name="author" content="Sueg"><meta name="copyright" content="Sueg"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://gxx-s.github.io/2020/07/10/DataCamp-Project-Visualizing-COVID-19/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="DataCamp Project Visualizing COVID 19"><meta property="og:url" content="https://gxx-s.github.io/2020/07/10/DataCamp-Project-Visualizing-COVID-19/"><meta property="og:site_name" content="Sueg Zone"><meta property="og:description" content="1. From epidemic to pandemicIn December 2019, COVID-19 coronavirus was first identified in the Wuhan region of China. By March 11, 2020, the World Health Organization (WHO) categorized the COVID-19 ou"><meta property="og:image" content="https://www.nps.gov/aboutus/news/images/CDC-coronavirus-image-23311-for-web.jpg?maxwidth=650&amp;autorotate=false"><meta property="article:published_time" content="2020-07-10T15:57:36.000Z"><meta property="article:modified_time" content="2020-07-11T04:42:34.609Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">1</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">1</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-From-epidemic-to-pandemic"><span class="toc-number">1.</span> <span class="toc-text">1. From epidemic to pandemic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Confirmed-cases-throughout-the-world"><span class="toc-number">2.</span> <span class="toc-text">2. Confirmed cases throughout the world</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-China-compared-to-the-rest-of-the-world"><span class="toc-number">3.</span> <span class="toc-text">3. China compared to the rest of the world</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Let’s-annotate"><span class="toc-number">4.</span> <span class="toc-text">4. Let’s annotate!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Adding-a-trend-line-to-China"><span class="toc-number">5.</span> <span class="toc-text">5. Adding a trend line to China</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-And-the-rest-of-the-world"><span class="toc-number">6.</span> <span class="toc-text">6. And the rest of the world?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Adding-a-logarithmic-scale"><span class="toc-number">7.</span> <span class="toc-text">7. Adding a logarithmic scale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Which-countries-outside-of-China-have-been-hit-hardest"><span class="toc-number">8.</span> <span class="toc-text">8. Which countries outside of China have been hit hardest?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Plotting-hardest-hit-countries-as-of-Mid-March-2020"><span class="toc-number">9.</span> <span class="toc-text">9. Plotting hardest hit countries as of Mid-March 2020</span></a></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://www.nps.gov/aboutus/news/images/CDC-coronavirus-image-23311-for-web.jpg?maxwidth=650&amp;autorotate=false)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Sueg Zone</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">DataCamp Project Visualizing COVID 19</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2020-07-10 23:57:36"><i class="far fa-calendar-alt fa-fw"></i> Created 2020-07-10</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2020-07-11 12:42:34"><i class="fas fa-history fa-fw"></i> Updated 2020-07-11</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/Data-Science/">Data_Science</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="1-From-epidemic-to-pandemic"><a href="#1-From-epidemic-to-pandemic" class="headerlink" title="1. From epidemic to pandemic"></a>1. From epidemic to pandemic</h2><p>In December 2019, COVID-19 coronavirus was first identified in the Wuhan region of China. By March 11, 2020, the World Health Organization (WHO) categorized the COVID-19 outbreak as a pandemic. A lot has happened in the months in between with major outbreaks in Iran, South Korea, and Italy. </p>
+<p>We know that COVID-19 spreads through respiratory droplets, such as through coughing, sneezing, or speaking. But, how quickly did the virus spread across the globe? And, can we see any effect from country-wide policies, like shutdowns and quarantines? </p>
+<p>Fortunately, organizations around the world have been collecting data so that governments can monitor and learn from this pandemic. Notably, the Johns Hopkins University Center for Systems Science and Engineering created a <a href="https://github.com/RamiKrispin/coronavirus" target="_blank" rel="noopener">publicly available data repository</a> to consolidate this data from sources like the WHO, the Centers for Disease Control and Prevention (CDC), and the Ministry of Health from multiple countries.</p>
+<p>In this notebook, you will visualize COVID-19 data from the first several weeks of the outbreak to see at what point this virus became a global pandemic.</p>
+<p><em>Please note that information and data regarding COVID-19 is frequently being updated. The data used in this project was pulled on March 17, 2020, and should not be considered to be the most up to date data available.</em></p>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Load the readr, ggplot2, and dplyr packages</span></span><br><span class="line"><span class="keyword">library</span>(readr)</span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"><span class="keyword">library</span>(dplyr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Read datasets/confirmed_cases_worldwide.csv into confirmed_cases_worldwide</span></span><br><span class="line">confirmed_cases_worldwide &lt;- read_csv(<span class="string">'datasets/confirmed_cases_worldwide.csv'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># See the result</span></span><br><span class="line">confirmed_cases_worldwide</span><br></pre></td></tr></table></figure>
+
+<pre><code>Parsed with column specification:
+cols(
+  date = [34mcol_date(format = &quot;&quot;)[39m,
+  cum_cases = [32mcol_double()[39m
+)</code></pre><table>
+<caption>A spec_tbl_df: 56 x 2</caption>
+<thead>
+    <tr><th scope=col>date</th><th scope=col>cum_cases</th></tr>
+    <tr><th scope=col>&lt;date&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>2020-01-22</td><td>   555</td></tr>
+    <tr><td>2020-01-23</td><td>   653</td></tr>
+    <tr><td>2020-01-24</td><td>   941</td></tr>
+    <tr><td>2020-01-25</td><td>  1434</td></tr>
+    <tr><td>2020-01-26</td><td>  2118</td></tr>
+    <tr><td>2020-01-27</td><td>  2927</td></tr>
+    <tr><td>2020-01-28</td><td>  5578</td></tr>
+    <tr><td>2020-01-29</td><td>  6166</td></tr>
+    <tr><td>2020-01-30</td><td>  8234</td></tr>
+    <tr><td>2020-01-31</td><td>  9927</td></tr>
+    <tr><td>2020-02-01</td><td> 12038</td></tr>
+    <tr><td>2020-02-02</td><td> 16787</td></tr>
+    <tr><td>2020-02-03</td><td> 19881</td></tr>
+    <tr><td>2020-02-04</td><td> 23892</td></tr>
+    <tr><td>2020-02-05</td><td> 27635</td></tr>
+    <tr><td>2020-02-06</td><td> 30817</td></tr>
+    <tr><td>2020-02-07</td><td> 34391</td></tr>
+    <tr><td>2020-02-08</td><td> 37120</td></tr>
+    <tr><td>2020-02-09</td><td> 40150</td></tr>
+    <tr><td>2020-02-10</td><td> 42762</td></tr>
+    <tr><td>2020-02-11</td><td> 44802</td></tr>
+    <tr><td>2020-02-12</td><td> 45221</td></tr>
+    <tr><td>2020-02-13</td><td> 60368</td></tr>
+    <tr><td>2020-02-14</td><td> 66885</td></tr>
+    <tr><td>2020-02-15</td><td> 69030</td></tr>
+    <tr><td>2020-02-16</td><td> 71224</td></tr>
+    <tr><td>2020-02-17</td><td> 73258</td></tr>
+    <tr><td>2020-02-18</td><td> 75136</td></tr>
+    <tr><td>2020-02-19</td><td> 75639</td></tr>
+    <tr><td>2020-02-20</td><td> 76197</td></tr>
+    <tr><td>2020-02-21</td><td> 76823</td></tr>
+    <tr><td>2020-02-22</td><td> 78579</td></tr>
+    <tr><td>2020-02-23</td><td> 78965</td></tr>
+    <tr><td>2020-02-24</td><td> 79568</td></tr>
+    <tr><td>2020-02-25</td><td> 80413</td></tr>
+    <tr><td>2020-02-26</td><td> 81395</td></tr>
+    <tr><td>2020-02-27</td><td> 82754</td></tr>
+    <tr><td>2020-02-28</td><td> 84120</td></tr>
+    <tr><td>2020-02-29</td><td> 86011</td></tr>
+    <tr><td>2020-03-01</td><td> 88369</td></tr>
+    <tr><td>2020-03-02</td><td> 90306</td></tr>
+    <tr><td>2020-03-03</td><td> 92840</td></tr>
+    <tr><td>2020-03-04</td><td> 95120</td></tr>
+    <tr><td>2020-03-05</td><td> 97882</td></tr>
+    <tr><td>2020-03-06</td><td>101784</td></tr>
+    <tr><td>2020-03-07</td><td>105821</td></tr>
+    <tr><td>2020-03-08</td><td>109795</td></tr>
+    <tr><td>2020-03-09</td><td>113561</td></tr>
+    <tr><td>2020-03-10</td><td>118592</td></tr>
+    <tr><td>2020-03-11</td><td>125865</td></tr>
+    <tr><td>2020-03-12</td><td>128343</td></tr>
+    <tr><td>2020-03-13</td><td>145193</td></tr>
+    <tr><td>2020-03-14</td><td>156097</td></tr>
+    <tr><td>2020-03-15</td><td>167449</td></tr>
+    <tr><td>2020-03-16</td><td>181531</td></tr>
+    <tr><td>2020-03-17</td><td>197146</td></tr>
+</tbody>
+</table>
+
+
+
+<h2 id="2-Confirmed-cases-throughout-the-world"><a href="#2-Confirmed-cases-throughout-the-world" class="headerlink" title="2. Confirmed cases throughout the world"></a>2. Confirmed cases throughout the world</h2><p>The table above shows the cumulative confirmed cases of COVID-19 worldwide by date. Just reading numbers in a table makes it hard to get a sense of the scale and growth of the outbreak. Let's draw a line plot to visualize the confirmed cases worldwide.</p>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Draw a line plot of cumulative cases vs. date</span></span><br><span class="line"><span class="comment"># Label the y-axis</span></span><br><span class="line">ggplot(data = confirmed_cases_worldwide, aes(x = date,y = cum_cases )) + geom_line() + ylab(<span class="string">'Cumulative confirmed cases'</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src= "/img/loading.gif" data-src="output_3_0.png" alt="png"></p>
+<h2 id="3-China-compared-to-the-rest-of-the-world"><a href="#3-China-compared-to-the-rest-of-the-world" class="headerlink" title="3. China compared to the rest of the world"></a>3. China compared to the rest of the world</h2><p>The y-axis in that plot is pretty scary, with the total number of confirmed cases around the world approaching 200,000. Beyond that, some weird things are happening: there is an odd jump in mid February, then the rate of new cases slows down for a while, then speeds up again in March. We need to dig deeper to see what is happening.</p>
+<p>Early on in the outbreak, the COVID-19 cases were primarily centered in China. Let's plot confirmed COVID-19 cases in China and the rest of the world separately to see if it gives us any insight.</p>
+<p><em>We'll build on this plot in future tasks. One thing that will be important for the following tasks is that you add aesthetics within the line geometry of your ggplot, rather than making them global aesthetics.</em></p>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Read in datasets/confirmed_cases_china_vs_world.csv</span></span><br><span class="line">confirmed_cases_china_vs_world &lt;- read_csv(<span class="string">'datasets/confirmed_cases_china_vs_world.csv'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># See the result</span></span><br><span class="line">glimpse(confirmed_cases_china_vs_world)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Draw a line plot of cumulative cases vs. date, grouped and colored by is_china</span></span><br><span class="line"><span class="comment"># Define aesthetics within the line geom</span></span><br><span class="line">plt_cum_confirmed_cases_china_vs_world &lt;- ggplot(data = confirmed_cases_china_vs_world) +</span><br><span class="line">  geom_line(aes(x = date, y = cum_cases, group = is_china, color = is_china)) +</span><br><span class="line">  ylab(<span class="string">"Cumulative confirmed cases"</span>) +xlab(<span class="string">'Date'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># See the plot</span></span><br><span class="line">plt_cum_confirmed_cases_china_vs_world</span><br></pre></td></tr></table></figure>
+
+<pre><code>Parsed with column specification:
+cols(
+  is_china = [31mcol_character()[39m,
+  date = [34mcol_date(format = &quot;&quot;)[39m,
+  cases = [32mcol_double()[39m,
+  cum_cases = [32mcol_double()[39m
+)
+
+
+Observations: 112
+Variables: 4
+$ is_china  [3m[38;5;246m&lt;chr&gt;[39m[23m &quot;China&quot;, &quot;China&quot;, &quot;China&quot;, &quot;China&quot;, &quot;China&quot;, &quot;China&quot;, &quot;Ch...
+$ date      [3m[38;5;246m&lt;date&gt;[39m[23m 2020-01-22, 2020-01-23, 2020-01-24, 2020-01-25, 2020-01-...
+$ cases     [3m[38;5;246m&lt;dbl&gt;[39m[23m 548, 95, 277, 486, 669, 802, 2632, 578, 2054, 1661, 2089,...
+$ cum_cases [3m[38;5;246m&lt;dbl&gt;[39m[23m 548, 643, 920, 1406, 2075, 2877, 5509, 6087, 8141, 9802, ...</code></pre><p><img src= "/img/loading.gif" data-src="output_5_2.png" alt="png"></p>
+<h2 id="4-Let’s-annotate"><a href="#4-Let’s-annotate" class="headerlink" title="4. Let’s annotate!"></a>4. Let’s annotate!</h2><p>Wow! The two lines have very different shapes. In February, the majority of cases were in China. That changed in March when it really became a global outbreak: around March 14, the total number of cases outside China overtook the cases inside China. This was days after the WHO declared a pandemic.</p>
+<p>There were a couple of other landmark events that happened during the outbreak. For example, the huge jump in the China line on February 13, 2020 wasn't just a bad day regarding the outbreak; China changed the way it reported figures on that day (CT scans were accepted as evidence for COVID-19, rather than only lab tests).</p>
+<p>By annotating events like this, we can better interpret changes in the plot.</p>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">who_events &lt;- tribble(</span><br><span class="line">  ~ date, ~ event,</span><br><span class="line">  <span class="string">"2020-01-30"</span>, <span class="string">"Global health\nemergency declared"</span>,</span><br><span class="line">  <span class="string">"2020-03-11"</span>, <span class="string">"Pandemic\ndeclared"</span>,</span><br><span class="line">  <span class="string">"2020-02-13"</span>, <span class="string">"China reporting\nchange"</span></span><br><span class="line">) %&gt;%</span><br><span class="line">  mutate(date = as.Date(date))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using who_events, add vertical dashed lines with an xintercept at date</span></span><br><span class="line"><span class="comment"># and text at date, labeled by event, and at 100000 on the y-axis</span></span><br><span class="line">plt_cum_confirmed_cases_china_vs_world+geom_vline(aes(xintercept = date), data = who_events, </span><br><span class="line">                                                  linetype= <span class="string">'dashed'</span>)+geom_text(data = who_events,y = <span class="number">100000</span>, aes(x = date, label = event))</span><br></pre></td></tr></table></figure>
+
+
+<p><img src= "/img/loading.gif" data-src="output_7_0.png" alt="png"></p>
+<h2 id="5-Adding-a-trend-line-to-China"><a href="#5-Adding-a-trend-line-to-China" class="headerlink" title="5. Adding a trend line to China"></a>5. Adding a trend line to China</h2><p>When trying to assess how big future problems are going to be, we need a measure of how fast the number of cases is growing. A good starting point is to see if the cases are growing faster or slower than linearly.</p>
+<p>There is a clear surge of cases around February 13, 2020, with the reporting change in China. However, a couple of days after, the growth of cases in China slows down. How can we describe COVID-19's growth in China after February 15, 2020?</p>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Filter for China, from Feb 15</span></span><br><span class="line">china_after_feb15 &lt;- confirmed_cases_china_vs_world %&gt;%</span><br><span class="line">  filter(is_china == <span class="string">'China'</span>, date &gt;= <span class="string">"2020-02-15"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using china_after_feb15, draw a line plot cum_cases vs. date</span></span><br><span class="line"><span class="comment"># Add a smooth trend line using linear regression, no error bars</span></span><br><span class="line">ggplot(data = china_after_feb15, aes(x = date, y = cum_cases)) +geom_line() + geom_smooth(method = <span class="string">'lm'</span>,se = <span class="literal">FALSE</span>)+ylab(<span class="string">"Cumulative confirmed cases"</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>`geom_smooth()` using formula &apos;y ~ x&apos;</code></pre><p><img src= "/img/loading.gif" data-src="output_9_1.png" alt="png"></p>
+<h2 id="6-And-the-rest-of-the-world"><a href="#6-And-the-rest-of-the-world" class="headerlink" title="6. And the rest of the world?"></a>6. And the rest of the world?</h2><p>From the plot above, the growth rate in China is slower than linear. That's great news because it indicates China has at least somewhat contained the virus in late February and early March.</p>
+<p>How does the rest of the world compare to linear growth?</p>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Filter confirmed_cases_china_vs_world for not China</span></span><br><span class="line">not_china &lt;- confirmed_cases_china_vs_world %&gt;%</span><br><span class="line">    filter(is_china !=<span class="string">"China"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using not_china, draw a line plot cum_cases vs. date</span></span><br><span class="line"><span class="comment"># Add a smooth trend line using linear regression, no error bars</span></span><br><span class="line">plt_not_china_trend_lin &lt;- ggplot(data = not_china, aes(x = date, y = cum_cases)) +</span><br><span class="line">  geom_line() +</span><br><span class="line">  geom_smooth(method = <span class="string">'lm'</span>, se = <span class="literal">FALSE</span>) +</span><br><span class="line">  ylab(<span class="string">"Cumulative confirmed cases"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># See the result</span></span><br><span class="line">plt_not_china_trend_lin</span><br></pre></td></tr></table></figure>
+
+<pre><code>`geom_smooth()` using formula &apos;y ~ x&apos;</code></pre><p><img src= "/img/loading.gif" data-src="output_11_1.png" alt="png"></p>
+<h2 id="7-Adding-a-logarithmic-scale"><a href="#7-Adding-a-logarithmic-scale" class="headerlink" title="7. Adding a logarithmic scale"></a>7. Adding a logarithmic scale</h2><p>From the plot above, we can see a straight line does not fit well at all, and the rest of the world is growing much faster than linearly. What if we added a logarithmic scale to the y-axis?</p>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Modify the plot to use a logarithmic scale on the y-axis</span></span><br><span class="line">plt_not_china_trend_lin + </span><br><span class="line">  scale_y_log10()</span><br></pre></td></tr></table></figure>
+
+<pre><code>`geom_smooth()` using formula &apos;y ~ x&apos;</code></pre><p><img src= "/img/loading.gif" data-src="output_13_1.png" alt="png"></p>
+<h2 id="8-Which-countries-outside-of-China-have-been-hit-hardest"><a href="#8-Which-countries-outside-of-China-have-been-hit-hardest" class="headerlink" title="8. Which countries outside of China have been hit hardest?"></a>8. Which countries outside of China have been hit hardest?</h2><p>With the logarithmic scale, we get a much closer fit to the data. From a data science point of view, a good fit is great news. Unfortunately, from a public health point of view, that means that cases of COVID-19 in the rest of the world are growing at an exponential rate, which is terrible news.</p>
+<p>Not all countries are being affected by COVID-19 equally, and it would be helpful to know where in the world the problems are greatest. Let's find the countries outside of China with the most confirmed cases in our dataset.</p>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Run this to get the data for each country</span></span><br><span class="line">confirmed_cases_by_country &lt;- read_csv(<span class="string">"datasets/confirmed_cases_by_country.csv"</span>)</span><br><span class="line">glimpse(confirmed_cases_by_country)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Group by country, summarize to calculate total cases, find the top 7</span></span><br><span class="line">top_countries_by_total_cases &lt;- confirmed_cases_by_country %&gt;%</span><br><span class="line">  group_by(country) %&gt;%</span><br><span class="line">  summarize(total_cases = max(cum_cases)) %&gt;%</span><br><span class="line">  top_n(<span class="number">7</span>, total_cases)</span><br><span class="line"></span><br><span class="line"><span class="comment"># See the result</span></span><br><span class="line">top_countries_by_total_cases</span><br></pre></td></tr></table></figure>
+
+<pre><code>Parsed with column specification:
+cols(
+  country = [31mcol_character()[39m,
+  province = [31mcol_character()[39m,
+  date = [34mcol_date(format = &quot;&quot;)[39m,
+  cases = [32mcol_double()[39m,
+  cum_cases = [32mcol_double()[39m
+)
+
+
+Observations: 13,272
+Variables: 5
+$ country   [3m[38;5;246m&lt;chr&gt;[39m[23m &quot;Afghanistan&quot;, &quot;Albania&quot;, &quot;Algeria&quot;, &quot;Andorra&quot;, &quot;Antigua ...
+$ province  [3m[38;5;246m&lt;chr&gt;[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
+$ date      [3m[38;5;246m&lt;date&gt;[39m[23m 2020-01-22, 2020-01-22, 2020-01-22, 2020-01-22, 2020-01-...
+$ cases     [3m[38;5;246m&lt;dbl&gt;[39m[23m 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+$ cum_cases [3m[38;5;246m&lt;dbl&gt;[39m[23m 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</code></pre><table>
+<caption>A tibble: 7 x 2</caption>
+<thead>
+    <tr><th scope=col>country</th><th scope=col>total_cases</th></tr>
+    <tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>France      </td><td> 7699</td></tr>
+    <tr><td>Germany     </td><td> 9257</td></tr>
+    <tr><td>Iran        </td><td>16169</td></tr>
+    <tr><td>Italy       </td><td>31506</td></tr>
+    <tr><td>Korea, South</td><td> 8320</td></tr>
+    <tr><td>Spain       </td><td>11748</td></tr>
+    <tr><td>US          </td><td> 6421</td></tr>
+</tbody>
+</table>
+
+
+
+<h2 id="9-Plotting-hardest-hit-countries-as-of-Mid-March-2020"><a href="#9-Plotting-hardest-hit-countries-as-of-Mid-March-2020" class="headerlink" title="9. Plotting hardest hit countries as of Mid-March 2020"></a>9. Plotting hardest hit countries as of Mid-March 2020</h2><p>Even though the outbreak was first identified in China, there is only one country from East Asia (South Korea) in the above table. Four of the listed countries (France, Germany, Italy, and Spain) are in Europe and share borders. To get more context, we can plot these countries' confirmed cases over time.</p>
+<p>Finally, congratulations on getting to the last step! If you would like to continue making visualizations or find the hardest hit countries as of today, you can do your own analyses with the latest data available <a href="https://github.com/RamiKrispin/coronavirus" target="_blank" rel="noopener">here</a>. </p>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Run this to get the data for the top 7 countries</span></span><br><span class="line"></span><br><span class="line">confirmed_cases_top7_outside_china &lt;- read_csv(<span class="string">'datasets/confirmed_cases_top7_outside_china.csv'</span>)</span><br><span class="line"><span class="comment"># </span></span><br><span class="line">glimpse(confirmed_cases_top7_outside_china)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using confirmed_cases_top7_outside_china, draw a line plot of</span></span><br><span class="line"><span class="comment"># cum_cases vs. date, grouped and colored by country</span></span><br><span class="line">ggplot(data = confirmed_cases_top7_outside_china) + geom_line(aes(x = date, y = cum_cases, group = country, color = country)) + ylab(<span class="string">"Cumulative confirmed cases"</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Parsed with column specification:
+cols(
+  country = [31mcol_character()[39m,
+  date = [34mcol_date(format = &quot;&quot;)[39m,
+  cum_cases = [32mcol_double()[39m
+)
+
+
+Observations: 2,030
+Variables: 3
+$ country   [3m[38;5;246m&lt;chr&gt;[39m[23m &quot;Germany&quot;, &quot;Iran&quot;, &quot;Italy&quot;, &quot;Korea, South&quot;, &quot;Spain&quot;, &quot;US&quot;...
+$ date      [3m[38;5;246m&lt;date&gt;[39m[23m 2020-02-18, 2020-02-18, 2020-02-18, 2020-02-18, 2020-02-...
+$ cum_cases [3m[38;5;246m&lt;dbl&gt;[39m[23m 16, 0, 3, 31, 2, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, ...</code></pre><p><img src= "/img/loading.gif" data-src="output_17_2.png" alt="png"></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Sueg</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://gxx-s.github.io/2020/07/10/DataCamp-Project-Visualizing-COVID-19/">https://gxx-s.github.io/2020/07/10/DataCamp-Project-Visualizing-COVID-19/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Data-Visualization/">Data_Visualization</a></div><div class="post_share"><div class="social-share" data-image="https://www.nps.gov/aboutus/news/images/CDC-coronavirus-image-23311-for-web.jpg?maxwidth=650&amp;autorotate=false" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Sueg</div><div class="framework-info"><span>Driven </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font_plus" title="Increase Font Size"><i class="fas fa-plus"></i></button><button id="font_minus" title="Decrease Font Size"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="Setting"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":220,"height":440,"position":"left","hOffset":0,"vOffset":-50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body></html><!-- 雪花特效 -->
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="\js\snow.js"></script>
